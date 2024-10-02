@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Existing animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .pulse {
+            animation: pulse 6s infinite;
+        }
+
+        /* New styles for improved aesthetics */
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .input-focus:focus {
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+        }
+
+        /* Animated background styles */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .animated-bg circle {
+            fill: none;
+            stroke: rgba(59, 130, 246, 0.1);
+            stroke-width: 2;
+        }
+
+        @keyframes circle-animation {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+
+        .animated-bg circle:nth-child(1) { animation: circle-animation 20s linear infinite; }
+        .animated-bg circle:nth-child(2) { animation: circle-animation 25s linear infinite reverse; }
+        .animated-bg circle:nth-child(3) { animation: circle-animation 30s linear infinite; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center min-h-screen">
+    <!-- Animated SVG Background -->
+    <svg class="animated-bg" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
+        <circle cx="100" cy="100" r="150"/>
+        <circle cx="500" cy="500" r="250"/>
+        <circle cx="900" cy="900" r="350"/>
+    </svg>
+
+    <div class="w-full max-w-md p-8 space-y-8 glassmorphism fade-in">
+        <!-- Logo -->
+        <div class="flex justify-center mb-6">
+            <img src="logo.png" alt="Logo" class="w-40 pulse">
+        </div>
+
+        <!-- Título -->
+        <h2 class="text-center text-3xl font-bold text-gray-800">Bem-vindo de volta</h2>
+
+        <!-- Formulário de Login -->
+        <form class="mt-8 space-y-6">
+            <!-- Campo de E-mail -->
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700">E-mail</label>
+                <input id="email" name="email" type="email" required
+                    class="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm transition duration-300 ease-in-out transform hover:scale-102 input-focus">
+            </div>
+
+            <!-- Campo de Senha -->
+            <div>
+                <label for="senha" class="block text-sm font-medium text-gray-700">Senha</label>
+                <input id="senha" name="senha" type="password" required
+                    class="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm transition duration-300 ease-in-out transform hover:scale-102 input-focus">
+            </div>
+
+            <!-- Botão de Login -->
+            <div>
+                <button type="submit"
+                    class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-300 ease-in-out transform hover:scale-105">
+                    Entrar
+                </button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
